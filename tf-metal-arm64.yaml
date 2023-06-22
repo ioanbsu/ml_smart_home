@@ -1,0 +1,41 @@
+#conda env  config file FOR MAC M1. For all other OS/ARCHs this fill needs to be adjusted appropriately,
+#mainly around tensorflow-macos and tensorflow-metal pip dependencies.
+name: tensorflow
+channels:
+  - apple
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip>=19.0
+  - jupyter
+  - scikit-learn
+  - scipy
+  - pandas
+  - pandas-datareader
+  - matplotlib
+  - pillow
+  - tqdm
+  - requests
+  - h5py
+  - pyyaml
+  - flask
+  - boto3
+  - ipykernel
+  - tensorflow-deps
+  - pip:
+      - bayesian-optimization
+      - cvzone
+      - filterpy
+      - gym
+      - kaggle
+      - imutils
+      - imageai
+      - labelImg
+      - opencv-python
+      - paho-mqtt
+      - scikit-image
+      - tensorflow_datasets
+      - tensorflow-macos
+      - tensorflow-metal
+      - tf-models-no-deps
+      - yolo
