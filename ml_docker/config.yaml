@@ -1,0 +1,11 @@
+yolo_weights: /usr/src/datasets/yolo_detection_model.pt
+keras_weights: /usr/src/datasets/keras_home_automation_training.h5
+mqtt_broker_login: mosquitto_login
+mqtt_broker_password: mosquitto_pwd
+mqtt_broker_port: 1883
+mqtt_broker_host: 192.168.1.100
+cameras:
+  mac_m1_laptop_cam:
+    url: 0
+    switches:
+      - Switch
