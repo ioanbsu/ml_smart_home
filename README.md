@@ -19,9 +19,10 @@ smart home system trough MQTT.
 
 ## Plan
 1. Env setup
-   1. Setup docker
-   1. Setup conda
+   1. Install docker (google it)
+   1. Install conda (google it). Miniconda will work as well
    1. Init conda env and attach it to IDEA
+   1. Link conda env to jupiter notebook: `python -m ipykernel install --user --name ml_smart_home --display-name "ML Smart Home"`
 1. Labeling - recorded
    1. Start label-studio. Create account, get ready to import
    1. Record images to train on

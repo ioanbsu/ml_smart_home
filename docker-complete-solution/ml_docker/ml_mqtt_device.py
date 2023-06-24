@@ -1,14 +1,14 @@
 import argparse
 import json
-import time
+import threading
 
 import cv2
 import paho.mqtt.client as mqtt
 import yaml
 from jinja2 import Template
 from ultralytics import YOLO
-from yolo_detector import YoloDetector
 
+from yolo_detector import YoloDetector
 
 DETECTION_THRESHOLD = 0.8
 
@@ -60,6 +60,33 @@ def publish_to_mqtt(topic, payload, mqtt_client, retain=False):
         mqtt_client.publish(topic, payload, retain=retain, qos=1)
 
 
+class RTSPStream:
+    def __init__(self, rtsp_url):
+        self.capture = cv2.VideoCapture(rtsp_url)
+        self.frame = None
+        self.is_reading = False
+        self.thread = threading.Thread(target=self._read_frames)
+
+    def start(self):
+        self.is_reading = True
+        self.thread.start()
+
+    def stop(self):
+        self.is_reading = False
+        self.thread.join()
+
+    def _read_frames(self):
+        while self.is_reading:
+            ret, frame = self.capture.read()
+            if ret:
+                self.frame = frame
+
+    def get_latest_frame(self):
+        return self.frame
+
+
+
+
 args = parse_opt()
 # Read the YAML file
 with open(args.config, 'r') as file:
@@ -103,8 +130,7 @@ while True:
                 if topic not in states_map or states_map[topic] != payload:
                     publish_to_mqtt(MQTT_SENSOR_STATE_PATH.render(cam_name=camera_name), json.dumps(switch_payload),
                                     mqtt_client=mqtt_client)
-                    states_map[topic]=payload
-
+                    states_map[topic] = payload
 
 mqtt_client.loop_stop()
 mqtt_client.disconnect()

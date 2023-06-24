@@ -1,3 +1,4 @@
 /train/yolov8x.pt
 /ml_docker/yolo_detection_model.pt
 /train/.comet.config
+/docker-complete-solution/ml_docker/yolo_detection_model.pt

@@ -1,0 +1,30 @@
+#make sure that you configure HOME_DIR env variable in .env file.
+version: '3'
+services:
+  homeassistant:
+    container_name: "hass"
+    image: homeassistant/home-assistant:stable
+    restart: unless-stopped
+    privileged: true
+    ports:
+      - 8123:8123
+    volumes:
+      - ${HOME_DIR}/hass/:/config
+      - /etc/localtime:/etc/localtime:ro
+  mqtt:
+    container_name: "mosquitto"
+    image: eclipse-mosquitto
+    restart: unless-stopped
+    volumes:
+      - ${HOME_DIR}/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${HOME_DIR}/mosquitto/passwd:/passwd
+    ports:
+      - 1883:1883
+  ml-complete:
+    container_name: "ml-complete"
+    build:
+      context: ./ml_docker
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    network_mode: "host"
+
