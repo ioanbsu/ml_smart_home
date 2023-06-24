@@ -1,0 +1,14 @@
+#make sure that you configure HOME_DIR env variable in .env file.
+version: '3'
+services:
+  label-studio:
+    container_name: "label-studio"
+    image: heartexlabs/label-studio:latest
+    restart: unless-stopped
+    #    environment:
+    #      - EXPERIMENTAL_FEATURES=true
+    volumes:
+      - ${HOME_DIR}:/label-studio/data:rw
+    ports:
+      - 18888:8080
+
