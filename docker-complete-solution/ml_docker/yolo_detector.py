@@ -10,7 +10,8 @@ class YoloDetector:
 
     def detect(self, img):
         detections_map = []
-        results = self.video_detection_model.predict(img)
+        #if not using mac M1, remove ",device="mps""
+        results = self.video_detection_model.predict(img, device="mps")
         for result in results:
             bboxes = result.boxes.data
             switch_payload = json.loads('{}')

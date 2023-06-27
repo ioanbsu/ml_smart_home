@@ -10,10 +10,8 @@ import yaml
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--source', type=str, default='/Users/ioanbsu/Downloads/May25YoloDataset',
-                        help='path for the source of the yolo dataset')
-    parser.add_argument('--destination', type=str, default='/Users/ioanbsu/Downloads/YoloDatasetSplit',
-                        help='output path for where to put generated slit dataset to')
+    parser.add_argument('--source', type=str, help='path for the source of the yolo dataset')
+    parser.add_argument('--destination', type=str, help='output path for where to put generated slit dataset to')
     parser.add_argument('--train_ratio', type=float, default=0.8, help='Ratio of train images')
     parser.add_argument('--test_ratio', type=float, default=0.1, help='Ratio of test images')
     parser.add_argument('--val_ratio', type=float, default=0.1, help='Ratio of validate images')

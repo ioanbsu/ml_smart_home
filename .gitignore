@@ -2,3 +2,4 @@
 /ml_docker/yolo_detection_model.pt
 /train/.comet.config
 /docker-complete-solution/ml_docker/yolo_detection_model.pt
+/docker-complete-solution/ml_docker/config_local.yaml

@@ -118,11 +118,17 @@ for camera_name in cameras:
 
 states_map = {}
 yolo_detector = YoloDetector(parsed_yaml['yolo_weights'])
+# flip this to True if you want quick workaround ith frames buffering over rtsp.
+workaround_rtsp_buffering = False
 while True:
     for camera_name in cameras:
-        cap = captures[camera_name]
+        if workaround_rtsp_buffering:
+            cap = cv2.VideoCapture(cameras[camera_name]['url'])
+        else:
+            cap = captures[camera_name]
         success, img = cap.read()
         if success:
+            img = cv2.resize(img, (width, height))
             detections_map = yolo_detector.detect(img)
             for switch_payload in detections_map:
                 topic = MQTT_SENSOR_STATE_PATH.render(cam_name=camera_name)
@@ -131,6 +137,7 @@ while True:
                     publish_to_mqtt(MQTT_SENSOR_STATE_PATH.render(cam_name=camera_name), json.dumps(switch_payload),
                                     mqtt_client=mqtt_client)
                     states_map[topic] = payload
-
+        if workaround_rtsp_buffering:
+            cap.release()
 mqtt_client.loop_stop()
 mqtt_client.disconnect()

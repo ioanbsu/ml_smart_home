@@ -25,6 +25,7 @@ dependencies:
   - pip:
       - bayesian-optimization
       - cvzone
+      - comet-ml
       - filterpy
       - gym
       - kaggle
@@ -38,4 +39,4 @@ dependencies:
       - tensorflow-macos
       - tensorflow-metal
       - tf-models-no-deps
-      - yolo
+      - ultralytics

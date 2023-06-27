@@ -12,8 +12,9 @@ height = 720
 cap.set(3, width)
 cap.set(4, height)
 
-# Load a model
-model = YOLO('/Users/ioanbsu/git/ml/m1/python_notebooks/home_automation_drafts/runs/detect/train12/weights/best.pt')  # load a custom model
+# You'd need to train your model first, see train/train.ipynb notebook for details.
+# Load a model. Look fo the weights (best.pt) in train/runs/detect/trainX/weights/* folders
+model = YOLO('/INSERT_HERE_PATH_TO_YOLO_TRAIN_FOLDER/best.pt')  # load a custom model
 
 # Predict with the model
 while True:

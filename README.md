@@ -8,12 +8,12 @@ smart home system trough MQTT.
 
 1. **Mac M1**
 1. **conda/miniconda**
+1. **Docker**
 1. **Home Assistant (HA) installed**. While this approach will very likely to work with other smart home solutions, we will be using home
    assistant in this example. You are more than welcome to try to adopt proposed here solution to different smart home
    solutions, but using it with home assistant will make following staps in this instruction a lot easier.  
 1. **MQTT - installed and integrated with HA**
 1. **Python**
-1. **Docker**
 1. **Grafana(optional)**
 
 
@@ -23,15 +23,15 @@ smart home system trough MQTT.
    1. Record images to train on
    1. Upload images
    1. Label Images
+1. Training
+   1. Splitting dataset into training and validating
+   1. Training using yolov8x
 1. Env setup
    1. Install docker (google it)
    1. Install conda (google it). Miniconda will work as well
    1. Setup conda env in IDEA
    1. Init conda env and "attach" it to IDEA
    1. Link conda env to jupiter notebook: `python -m ipykernel install --user --name ml_smart_home --display-name "ML Smart Home"`
-1. Training
-   1. Splitting dataset into training and validating
-   1. Training using yolov8x
 1. Testing
    1. Using provided python script, test that objects detection works as expected.
 1. Home automation integration
@@ -41,10 +41,7 @@ smart home system trough MQTT.
    1. Understanding python code that generates mqtt messages
 1. All-in-one-docker integration.
 
-## Starting image labeling software: label-studio
-The label studio is a convenient software that allows labeling ML datasets and exporting them in different formats. You can start local version of it using docker:
-```shell
-docker-compose up
-```
-Once it successfully started, the label-studio should be available under http://localhost:18888/
+
+## Step by step instructions
+For complete step-by step instructions check out youtube video: 
 
