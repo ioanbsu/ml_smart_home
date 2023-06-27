@@ -85,8 +85,6 @@ class RTSPStream:
         return self.frame
 
 
-
-
 args = parse_opt()
 # Read the YAML file
 with open(args.config, 'r') as file:
