@@ -24,10 +24,6 @@ MQTT events that are recognized by Home Assistant as MQTT Switch.
     - Upload images
     - Label images
     - Export images
-1. Training
-    - Splitting dataset into training, validating and test. [Here](https://blog.roboflow.com/train-test-split/) is a
-      very good explanation why that is needed.
-    - Training using yolov8x
 1. Env setup
     - Install docker (google it)
     - Install conda (google it). Miniconda will work just fine well
@@ -37,7 +33,11 @@ MQTT events that are recognized by Home Assistant as MQTT Switch.
       notebook: `python -m ipykernel install --user --name ml_smart_home --display-name "ML Smart Home"`. This step is
       optional but is recommended, you can just run all commands from cmd line provided you ruin them from appropriate
       conda environment.
-1. Testing
+1. Training
+   - Splitting dataset into training, validating and test. [Here](https://blog.roboflow.com/train-test-split/) is a
+     very good explanation why that is needed.
+   - Training using yolov8x
+2. Testing
     - Using provided yolo_predict_test.py python script, test that objects detection works as expected
 1. Home automation integration
     - Home automation
