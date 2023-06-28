@@ -50,5 +50,5 @@ MQTT events that are recognized by Home Assistant as MQTT Switch.
 
 ## Step by step instructions
 
-For complete step-by step instructions check out [youtube video](https://youtu.be/4ETaWTp7LQA) 
+For complete step-by step instructions check out [youtube video](https://youtu.be/cNVhywFMN0w) 
 
