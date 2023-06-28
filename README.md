@@ -1,7 +1,7 @@
-# Machine Learning meets smart home (home assistant)
+# Machine Learning meets smart home (home assistant): ML-Switch
 
-In this repository you'll find necessary instructions to train CV model and deploy it so that it can send events to
-smart home system trough MQTT.
+In this repository you'll find code that allows to train Computer Vision (CV) Machine Learning(ML) model and generate
+MQTT events that are recognized by Home Assistant as MQTT Switch.
 
 ## Prerequisites
 
@@ -50,5 +50,5 @@ smart home system trough MQTT.
 
 ## Step by step instructions
 
-For complete step-by step instructions check out youtube video: 
+For complete step-by step instructions check out [youtube video](https://youtu.be/4ETaWTp7LQA) 
 
